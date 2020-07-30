@@ -1,0 +1,53 @@
+<div class="container p-5">
+    <div class="form-row">
+        <div>
+            <app-autocomplete 
+            [(ngModel)]="company" 
+            [displayField]="'company'" 
+            [suggestions]="data" 
+            (filterEvent)="filter($event)"></app-autocomplete>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="text" [(ngModel)]="form.name" class="form-control" placeholder="Employee Name">
+        </div>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="form.company" placeholder="Company Name">
+        </div>
+        <button class="btn btn-primary mb-3 mr-1" (click)="addEmployee()" *ngIf="!isUpdate">Add</button>
+        <button class="btn btn-primary mb-3 mr-1" (click)="updateEmployee()" *ngIf="isUpdate">Update</button>
+        <button class="btn btn-danger mb-3 mr-1" (click)="cancel()" *ngIf="isUpdate">Cancel</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-border">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Company
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+            <tr *ngFor="let item of emp$ | async">
+                <td>
+                    {{item.name}}
+                </td>
+                <td>
+                    {{item.company}}
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-info mr-1" (click)="editEmployee(item)">
+                        Edit
+                    </button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteEmployee(item.id)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

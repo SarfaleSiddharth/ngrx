@@ -1,0 +1,7 @@
+<div class="autocomplete">
+    <input type="text" [(ngModel)]="search" (ngModelChange)="filter()" />
+    <ul class="data-wrpper" *ngIf="suggestions.length != 0 && isDisplay">
+        <li *ngFor="let item of suggestions" (click)="select(item)" [innerHtml]="item[displayField]">
+        </li>
+    </ul>
+</div>
