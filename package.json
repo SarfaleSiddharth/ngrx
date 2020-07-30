@@ -22,7 +22,7 @@
     "@ngrx/effects": "^8.4.0",
     "@ngrx/store": "^8.4.0",
     "@ngrx/store-devtools": "^8.4.0",
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.3.1",
     "ngrx-store-freeze": "^0.2.4",
     "ngx-bootstrap": "^5.2.0",
     "normalizr": "^3.4.1",
